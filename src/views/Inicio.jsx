@@ -21,7 +21,9 @@ export default function Inicio() {
   console.log(error)
   // console.log(isloading)
 //   return
-  if(isLoading) return 'cargando...';
+  if(isLoading) return <div>Cargando...</div>;
+  if (error) return <div>Error al cargar</div>;
+  if (!data) return <div>Cargando...</div>;
   const productos = data.data.filter(producto => producto.categoria_id === categoriaActual.id)
 
   return (
