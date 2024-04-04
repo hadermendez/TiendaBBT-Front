@@ -1,8 +1,8 @@
 import { formatMoney } from "../helpers"
 import useTienda from "../hooks/useTienda"
 
-export default function Producto({producto}) {
-    const { handleClickModal, handleSetProdcuto} = useTienda()
+export default function Producto({producto, botonAgregar = false, botonDisponible = false}) {
+    const { handleClickModal, handleSetProdcuto,handleClickProductoAgotado} = useTienda()
 
     const {nombre, imagen, precio} = producto
   return (
@@ -18,16 +18,31 @@ export default function Producto({producto}) {
             <p className=" mt-5 font-black text-4xl text-indigo-500">
                 {formatMoney(precio)}
             </p>
-            <button
-                type="button"
-                className=" bg-black hover:bg-gray-400 text-white w-full mt-5 p-3 uppercase font-bold"
-                onClick={()=>{
-                    handleClickModal();
-                    handleSetProdcuto(producto);
-                }}    
-            >
-                Agregar
-            </button>
+            {botonAgregar && (
+
+                <button
+                    type="button"
+                    className=" bg-black hover:bg-gray-400 text-white w-full mt-5 p-3 uppercase font-bold"
+                    onClick={()=>{
+                        handleClickModal();
+                        handleSetProdcuto(producto);
+                    }}    
+                    >
+                    Agregar
+                </button>
+            )}
+            {botonDisponible && (
+                <button
+                    type="button"
+                    className=" bg-black hover:bg-gray-400 text-white w-full mt-5 p-3 uppercase font-bold"
+                    onClick={()=>{
+                        handleClickProductoAgotado(producto.id);
+                    }}    
+                    >
+                    Producto Agotado
+                </button>
+            )}
+            
         </div>
     </div>
   )

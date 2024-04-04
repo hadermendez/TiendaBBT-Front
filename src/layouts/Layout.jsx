@@ -24,11 +24,10 @@ Modal.setAppElement('#root')
 
 export default function Layout() {
 
-  const {user, error} = useAuth({middleware: 'auth'})
+  useAuth({middleware: 'auth'})
   const { modal } = useTienda()
 
-  console.log(user)
-  console.log(error)
+
   
   return (
     
