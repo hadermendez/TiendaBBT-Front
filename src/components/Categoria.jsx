@@ -5,12 +5,13 @@ export default function Categoria({categoria}) {
     const {icono, id, nombre} = categoria
 
     return (
-    <div className={` ${categoriaActual.id === id ? "bg-black text-white" : 'bg-white'} flex items-center gap-4 border w-full p-2 hover:bg-black 
+    <div className={` ${categoriaActual.id === id ? " bg-slate-600 text-white" : 'bg-white'} flex items-center gap-4 border w-full p-2 hover:bg-slate-600 
     hover:text-white cursor-pointer`}>
             <img 
                 src={`/img/icono_${icono}.svg`} 
                 alt="Imagen Icono"
                 className=" w-10"
+                
             />
             <button 
 
