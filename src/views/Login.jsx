@@ -1,12 +1,12 @@
-import {createRef, useState} from "react"
+import {createRef, useRef, useState} from "react"
 import { Link } from "react-router-dom"
 import Alerta from "../components/Alerta";
 import { useAuth } from "../hooks/useAuth";
 
 export default function Login() {
 
-    const emailRef = createRef();
-    const passwordRef = createRef();
+    const emailRef = useRef();
+    const passwordRef = useRef();
 
     const [errores, setErrores] = useState([])
     const {login} = useAuth({
