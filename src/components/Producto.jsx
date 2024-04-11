@@ -4,7 +4,7 @@ import useTienda from "../hooks/useTienda"
 export default function Producto({producto, botonAgregar = false, botonDisponible = false}) {
     const { handleClickModal, handleSetProdcuto,handleClickProductoAgotado} = useTienda()
 
-    const {nombre, imagen, precio,disponible} = producto
+    const {nombre, imagen, precio} = producto
   return (
     <div className=" border p-3 shadow bg-white">
         <img 
@@ -41,7 +41,7 @@ export default function Producto({producto, botonAgregar = false, botonDisponibl
                     >
                     Producto Agotado
                 </button>
-            ):(
+            ):!(botonAgregar) && (
                 <button
                     type="button"
                     className=" bg-black hover:bg-gray-400 text-white w-full mt-5 p-3 uppercase font-bold"
