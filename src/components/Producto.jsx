@@ -5,11 +5,19 @@ export default function Producto({producto, botonAgregar = false, botonDisponibl
     const { handleClickModal, handleSetProdcuto,handleClickProductoAgotado} = useTienda()
 
     const {nombre, imagen, precio} = producto
-    console.log(imagen)
+        // Obtiene la URL base de la API desde las variables de entorno
+    const apiUrlBase = import.meta.env.VITE_API_URL;
+
+    // Remueve el prefijo 'public/' de la ruta de la imagen y ajusta la ruta para apuntar a 'storage/imagenes/'
+    const imagePath = imagen.replace('public/', 'storage/');
+
+    // Construye la URL completa de la imagen
+    const imageUrl = new URL(imagePath, apiUrlBase).href;
+    console.log(imageUrl)
   return (
     <div className=" border p-3 shadow bg-white">
         <img 
-            src={imagen} 
+            src={imageUrl} 
             alt={`imagen ${nombre}`}
             className="w-full" 
         />
