@@ -19,8 +19,8 @@ export default function Disponibles({ disponible }) {
   )
 
   if(isLoading) return 'cargando...'
-console.log(data.data)
-console.log(disponible)
+// console.log(data.data)
+// console.log(disponible)
   return (
     <>      
       <div className=" mt-5 grid gap-4 grid-cols-1 md:grid-cols-3 xl:grid-cols-4">

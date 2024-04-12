@@ -50,7 +50,7 @@ export default function Ordenes() {
             Cliente: {' '}
             <span className=" font-normal">
               <p>{pedido.user.name}</p>
-              <p>{pedido.user.email}</p>
+              <p className="truncate">{pedido.user.email}</p>
             </span>
           </div>
           <p className="text-lg font-bold text-amber-600 ">

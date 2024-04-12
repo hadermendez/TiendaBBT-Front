@@ -40,7 +40,7 @@ export default function NewProducto() {
             console.log(data)
             toast.success(data.message);
             // setTimeout(() => {
-                navigate('/admin'); // Ajusta esto a tu ruta deseada
+                navigate('/admin/productos'); // Ajusta esto a tu ruta deseada
             // }, 1000);
             
     
@@ -62,7 +62,11 @@ export default function NewProducto() {
   return (
     <>
 
-        <form className="max-w-lg mx-auto my-10 p-5 border rounded-lg" onSubmit={handleSubmitNuevoProducto}>
+        <form 
+            className="max-w-lg mx-auto my-10 p-5 border rounded-lg" 
+            onSubmit={handleSubmitNuevoProducto}
+            enctype="multipart/form-data" 
+        >
         <h2 className="text-2xl font-semibold mb-5">Nuevo Producto</h2>
 
         <div className="mb-4">
@@ -88,7 +92,10 @@ export default function NewProducto() {
             id="imagen"
             name="imagen"
             accept="image/*"
-            onChange={(e) => setImagen(e.target.value)}
+            onChange={(e) => 
+                setImagen(e.target.files[0])
+                // setImagen(e.target.value)
+            }
             // required
             className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100"
             />

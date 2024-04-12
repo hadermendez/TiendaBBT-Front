@@ -5,10 +5,11 @@ export default function Producto({producto, botonAgregar = false, botonDisponibl
     const { handleClickModal, handleSetProdcuto,handleClickProductoAgotado} = useTienda()
 
     const {nombre, imagen, precio} = producto
+    console.log(imagen)
   return (
     <div className=" border p-3 shadow bg-white">
         <img 
-            src={"/img/"+imagen+".jpg"} 
+            src={imagen} 
             alt={`imagen ${nombre}`}
             className="w-full" 
         />
