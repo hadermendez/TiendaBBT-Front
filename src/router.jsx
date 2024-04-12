@@ -7,6 +7,7 @@ import Registro from './views/Registro'
 import AdminLayout from './layouts/AdminLayout'
 import Ordenes from './views/Ordenes'
 import Productos from './views/Productos'
+import NewProducto from './components/NewProducto'
 
 const router = createBrowserRouter([
     {
@@ -46,6 +47,11 @@ const router = createBrowserRouter([
                 // index: true,
                 path: '/admin/productos',
                 element: <Productos />
+            },
+            {
+                // index: true,
+                path: '/admin/nuevo-producto',
+                element: <NewProducto />
             },
         
         ]

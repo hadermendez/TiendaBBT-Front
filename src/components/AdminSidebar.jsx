@@ -8,17 +8,11 @@ import { Fragment, useState } from 'react'
 import { Dialog, Menu, Transition } from '@headlessui/react'
 import {
   Bars3Icon,
-  BellIcon,
-  CalendarIcon,
-  ChartPieIcon,
   Cog6ToothIcon,
-  DocumentDuplicateIcon,
-  FolderIcon,
-  HomeIcon,
-  UsersIcon,
   XMarkIcon,
   TicketIcon,
-  PuzzlePieceIcon
+  PuzzlePieceIcon,
+  PlusIcon
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, MagnifyingGlassIcon } from '@heroicons/react/20/solid'
 
@@ -180,13 +174,20 @@ export default function AdminSidebar() {
             <div className="h-6 w-px bg-gray-900/10 lg:hidden" aria-hidden="true" />
 
             <div className="flex flex-1 gap-x-4 self-stretch lg:gap-x-6">
-              <div className="relative flex flex-1" action="#" method="GET">
-                  <button type="button" className="-m-2.5 p-2.5 text-gray-400 hover:text-gray-500">
-                  <span className="sr-only">View notifications</span>
-                  <BellIcon className="h-6 w-6" aria-hidden="true" />
-                </button>
+              <div className="flex items-center">
+                  <div className="flex-shrink-0">
+                  <Link
+                    to="/admin/nuevo-producto" // Asegúrate de que esta ruta esté definida en tu enrutador
+                    className="relative inline-flex items-center gap-x-1.5 rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500"
+                  >
+                    <PlusIcon className="-ml-0.5 h-5 w-5" aria-hidden="true" />
+                    Nuevo Producto
+                  </Link>
+
+                  </div>
               </div>
               <div className="flex items-center gap-x-4 lg:gap-x-6">
+             
               
 
                 {/* Separator */}

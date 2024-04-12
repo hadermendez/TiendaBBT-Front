@@ -48,6 +48,7 @@ export default function Productos() {
                 <span>{tab.name}</span>
               </button>
             ))}
+            
           </nav>
         </div>
       </div>

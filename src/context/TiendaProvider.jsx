@@ -138,6 +138,8 @@ const TiendaProvider =({children}) => {
     }
 
 
+    
+
 
     return(
         <TiendaContext.Provider
@@ -157,6 +159,7 @@ const TiendaProvider =({children}) => {
                 handleSubmitNuevoPedido,
                 handleClickCompletarPedido,
                 handleClickProductoAgotado,
+                
             }}
         >{children}</TiendaContext.Provider>
     )
