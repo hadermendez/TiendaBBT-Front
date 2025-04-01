@@ -28,7 +28,11 @@ export default function Inicio() {
 
   return (
     <>
-      <h1 className=" text-4xl font-black">{categoriaActual.nombre}</h1>
+      {/* <h1 className=" text-4xl font-black">{categoriaActual.nombre}</h1> */}
+      <h1 className="text-4xl font-black">
+          {categoriaActual ? categoriaActual.nombre : 'Cargando categoría...'}
+      </h1>
+
       <p className=" text-2xl my-10">
         Elige tu pedido.
       </p>
