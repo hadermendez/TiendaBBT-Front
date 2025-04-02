@@ -4,6 +4,9 @@ import Producto from "../components/Producto";
 import clienteAxios from "../config/axios";
 import { productos as data } from "../data/productos";
 import useTienda from "../hooks/useTienda";
+
+import ErrorBoundary from './ErrorBoundary'; // Asegúrate de importar tu ErrorBoundary
+
 export default function Inicio() {
 
   const {categoriaActual} = useTienda()
@@ -27,8 +30,10 @@ export default function Inicio() {
   const productos = data.data.filter(producto => producto.categoria_id === categoriaActual.id)
 
   return (
-    <>
-      {/* <h1 className=" text-4xl font-black">{categoriaActual.nombre}</h1> */}
+    // <>
+    <ErrorBoundary>
+      <div>
+
       <h1 className="text-4xl font-black">
           {categoriaActual ? categoriaActual.nombre : 'Cargando categoría...'}
       </h1>
@@ -46,6 +51,7 @@ export default function Inicio() {
             />
           ))}
       </div>
-    </>
+      </div>
+    </ErrorBoundary>
   )
 }
