@@ -5,7 +5,7 @@ import clienteAxios from "../config/axios";
 import { productos as data } from "../data/productos";
 import useTienda from "../hooks/useTienda";
 
-import ErrorBoundary from './ErrorBoundary'; // Asegúrate de importar tu ErrorBoundary
+import ErrorBoundary from '../components/ErrorBoundary'; 
 
 export default function Inicio() {
 
