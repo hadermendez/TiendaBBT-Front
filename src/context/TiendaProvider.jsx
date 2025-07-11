@@ -10,9 +10,25 @@ const TiendaProvider = ({ children }) => {
   const [categoriaActual, setcategoriaActual] = useState({});
   const [modal, setModal] = useState(false);
   const [producto, setProducto] = useState({});
-  const [pedido, setPedido] = useState([]);
-  const [total, setTotal] = useState(0);
+
   const [mostrarResumen, setMostrarResumen] = useState(false);
+
+  // ⬇️ usar como estado inicial
+  const [pedido, setPedido] = useState(() => {
+    try {
+      return JSON.parse(localStorage.getItem("pedido")) || [];
+    } catch (e) {
+      return [];
+    }
+  });
+
+  const [total, setTotal] = useState(() => {
+    try {
+      return Number(localStorage.getItem("total")) || 0;
+    } catch (e) {
+      return 0;
+    }
+  });
 
   useEffect(() => {
     const nuevoTotal = pedido.reduce(
@@ -21,6 +37,11 @@ const TiendaProvider = ({ children }) => {
     );
     setTotal(nuevoTotal);
   }, [pedido]);
+
+  useEffect(() => {
+    localStorage.setItem("pedido", JSON.stringify(pedido));
+    localStorage.setItem("total", total.toString());
+  }, [pedido, total]);
 
   const obtenerCartegorias = async () => {
     const token = localStorage.getItem("AUTH_TOKEN");

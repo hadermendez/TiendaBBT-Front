@@ -10,6 +10,7 @@ import Resume from "../components/Resume";
 import useTienda from "../hooks/useTienda";
 import ModalProducto from "../components/ModalProducto";
 import { useAuth } from "../hooks/useAuth";
+import { FaUser, FaShoppingCart } from "react-icons/fa";
 
 const customStyles = {
   content: {
@@ -58,9 +59,10 @@ export default function Layout() {
         </button>
 
         <img src="/img/logo.svg" alt="Logo" className="h-6" />
-
         <div className="flex items-center gap-3">
-          <button className="text-orange-500 text-xl">👤</button>
+          <button className="text-orange-500 text-xl">
+            <FaUser />
+          </button>
           <button
             onClick={() => {
               if (!mostrarResumen) setIsSidebarOpen(false);
@@ -68,7 +70,7 @@ export default function Layout() {
             }}
             className="relative text-orange-500 text-xl"
           >
-            🛒
+            <FaShoppingCart />
             {totalProductos > 0 && (
               <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full">
                 {totalProductos}
