@@ -57,20 +57,21 @@ export default function Layout() {
         <button onClick={toggleSidebar} className="text-2xl">
           ☰
         </button>
-        <h1 className="text-lg font-bold">
-          {import.meta.env.VITE_COMPANY_NAME}
-        </h1>
-        <button
-          onClick={() => setMostrarResumen(!mostrarResumen)}
-          className="md:hidden absolute right-4 top-4"
-        >
-          🛒
-          {totalProductos > 0 && (
-            <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full">
-              {totalProductos}
-            </span>
-          )}
-        </button>
+
+        <img src="/img/logo.svg" alt="Logo" className="h-6" />
+
+        <div className="flex items-center gap-3">
+          <button className="text-orange-500 text-xl">👤</button>
+          <button
+            onClick={() => {
+              if (!mostrarResumen) setIsSidebarOpen(false);
+              setMostrarResumen(!mostrarResumen);
+            }}
+            className="text-orange-500 text-xl"
+          >
+            🛒
+          </button>
+        </div>
       </div>
 
       {/* Fondo oscuro (overlay) solo en móviles */}
