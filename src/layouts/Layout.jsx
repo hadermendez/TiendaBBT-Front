@@ -29,7 +29,16 @@ export default function Layout() {
   const { modal } = useTienda();
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+    setMostrarResumen(false); // ← cerramos el resumen si se abre el menú
+  };
+
+  const { setMostrarResumen, mostrarResumen, pedido } = useTienda();
+  const totalProductos = pedido.reduce(
+    (total, item) => total + item.cantidad,
+    0
+  );
 
   // Bloquear scroll del body cuando el menú está abierto
   useEffect(() => {
@@ -51,6 +60,17 @@ export default function Layout() {
         <h1 className="text-lg font-bold">
           {import.meta.env.VITE_COMPANY_NAME}
         </h1>
+        <button
+          onClick={() => setMostrarResumen(!mostrarResumen)}
+          className="md:hidden absolute right-4 top-4"
+        >
+          🛒
+          {totalProductos > 0 && (
+            <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full">
+              {totalProductos}
+            </span>
+          )}
+        </button>
       </div>
 
       {/* Fondo oscuro (overlay) solo en móviles */}
