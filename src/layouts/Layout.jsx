@@ -51,7 +51,6 @@ export default function Layout() {
 
   return (
     <>
-      {/* Botón hamburguesa visible solo en móviles */}
       {/* Barra superior solo en mobile */}
       <div className="md:hidden fixed top-0 left-0 right-0 z-50 bg-white shadow p-4 flex items-center justify-between h-16">
         <button onClick={toggleSidebar} className="text-2xl">
@@ -67,9 +66,14 @@ export default function Layout() {
               if (!mostrarResumen) setIsSidebarOpen(false);
               setMostrarResumen(!mostrarResumen);
             }}
-            className="text-orange-500 text-xl"
+            className="relative text-orange-500 text-xl"
           >
             🛒
+            {totalProductos > 0 && (
+              <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full">
+                {totalProductos}
+              </span>
+            )}
           </button>
         </div>
       </div>
