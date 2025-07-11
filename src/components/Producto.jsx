@@ -30,7 +30,7 @@ export default function Producto({
 
       <div className="p-5">
         <h3 className="text-2xl font-bold">{nombre}</h3>
-        <p className="mt-4 font-extrabold text-indigo-500 text-lg sm:text-xl md:text-2xl whitespace-nowrap overflow-hidden text-center">
+        <p className="mt-4 font-extrabold text-indigo-500 text-[clamp(1rem,4vw,1.5rem)] whitespace-nowrap overflow-hidden text-center">
           <span className="align-middle">$</span>{" "}
           {formatMoney(precio).replace("$", "")}
         </p>
