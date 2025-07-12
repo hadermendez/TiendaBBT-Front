@@ -58,7 +58,12 @@ export default function Layout() {
           ☰
         </button>
 
-        <img src="/img/logo.svg" alt="Logo" className="h-6" />
+        <img
+          src="/img/logo.svg"
+          alt="Logo"
+          className="w-16 md:w-20 h-auto mx-auto"
+        />
+
         <div className="flex items-center gap-3">
           <button className="text-orange-500 text-xl">
             <FaUser />
